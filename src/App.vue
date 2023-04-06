@@ -74,9 +74,8 @@
         </q-item>
       </q-list>
     </q-drawer>
-
     <q-page-container>
-      <HelloWorld />
+     <router-view/>
     </q-page-container>
   </q-layout>
 </template>
@@ -86,12 +85,7 @@ import { ref } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'LayoutDefault',
-
-  components: {
-    HelloWorld
-  },
-
+  name: 'LayoutDefault', props: ['mountParcel', 'otherProp'],
   setup () {
     return {
       leftDrawerOpen: ref(false)
