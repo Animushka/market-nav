@@ -1,14 +1,12 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
+  filenameHashing: false,
   configureWebpack: {
     output: {
       libraryTarget: 'system'
-    }
+    },
   },
-  transpileDependencies: [
-    'quasar'
-  ],
-
+  transpileDependencies: ['quasar'],
   pluginOptions: {
     quasar: {
       importStrategy: 'kebab',
@@ -16,6 +14,10 @@ module.exports = defineConfig({
     }
   },
   devServer: {
-    port: 8093
+    host : "localhost",
+    port: 8093,
+    headers: {
+      "Access-Control-Allow-Origin": "*"
+    }
   }
 })
