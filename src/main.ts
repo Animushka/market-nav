@@ -26,6 +26,7 @@ const vueLifecycles = singleSpaVue({
   handleInstance(app) {
     app.use(router);
     app.use(store);
+    app.use(Quasar, quasarUserOptions)
   },
 });
 
