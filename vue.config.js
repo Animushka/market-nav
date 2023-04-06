@@ -1,5 +1,10 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
+  configureWebpack: {
+    output: {
+      libraryTarget: 'system'
+    }
+  },
   transpileDependencies: [
     'quasar'
   ],
@@ -9,5 +14,8 @@ module.exports = defineConfig({
       importStrategy: 'kebab',
       rtlSupport: false
     }
+  },
+  devServer: {
+    port: 8093
   }
 })
