@@ -3,7 +3,8 @@ module.exports = defineConfig({
   filenameHashing: false,
   configureWebpack: {
     output: {
-      libraryTarget: 'system'
+      libraryTarget: 'system',
+      filename: 'js/nav.js'
     },
   },
   transpileDependencies: ['quasar'],
