@@ -7,10 +7,15 @@
     <q-toolbar-title>Market</q-toolbar-title>
 
     <q-btn stretch flat to="/products">
-      Products
+      Магазин
     </q-btn>
-    <q-btn stretch flat to="/profile" icon="person"/>
-    Products : {{order.size}}
+    <q-btn stretch flat to="/orders">
+      Мои заказы
+    </q-btn>
+    <q-btn stretch flat to="/order">
+      Оформить заказ
+    </q-btn>
+    Товаро в корзине : {{order.size}}
   </q-toolbar>
 </template>
 
