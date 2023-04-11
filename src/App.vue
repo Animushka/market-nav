@@ -10,5 +10,35 @@
       Products
     </q-btn>
     <q-btn stretch flat to="/profile" icon="person"/>
+    Products : {{order.size}}
   </q-toolbar>
 </template>
+
+<script lang="ts">
+
+import { defineComponent, onBeforeUnmount, ref } from 'vue';
+/* eslint-disable */ // @ts-ignore
+import {orderService$} from '@tko/market-store'
+
+export default defineComponent({
+  setup() {
+    const order = ref(new Set());
+    const orderSubscription = orderService$.getOrder().subscribe(data => {
+      if (data) {
+        order.value = data;
+      } else {
+        order.value = new Set();
+      }
+    })
+
+    onBeforeUnmount(() => {
+      orderSubscription.unsubscribe();
+    })
+
+    return {
+      order
+    }
+  }
+})
+
+</script>
